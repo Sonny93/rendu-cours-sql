@@ -2,7 +2,7 @@ dev:
 	@npm run dev
 
 docker:
-	@docker compose up -d
+	@docker compose -f dev.docker-compose.yml up -d 
 
 format:
 	@npm run format
