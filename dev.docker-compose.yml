@@ -12,6 +12,7 @@ services:
       - .env
     volumes:
       - mariadb_rendu:/var/lib/mysql
+      - ./docker-config/init.sql:/docker-entrypoint-initdb.d/init.sql
     ports:
       - 3306:3306
   pma:
