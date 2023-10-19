@@ -68,6 +68,7 @@
   },
   "dependencies": {
     "@adonisjs/core": "^5.9.0",
+    "@adonisjs/lucid": "^18.4.2",
     "@adonisjs/repl": "^3.1.11",
     "@adonisjs/session": "^6.4.0",
     "@adonisjs/shield": "^7.1.1",
@@ -80,6 +81,8 @@
     "@inertiajs/server": "^0.1.0",
     "@types/react": "^18.2.29",
     "@types/react-dom": "^18.2.13",
+    "luxon": "^3.4.3",
+    "mysql2": "^3.6.2",
     "proxy-addr": "^2.0.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
