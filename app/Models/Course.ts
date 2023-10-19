@@ -1,10 +1,12 @@
+import { HasMany, column, hasMany } from '@ioc:Adonis/Lucid/Orm';
 import { DateTime } from 'luxon';
-import { BaseModel, HasMany, column, hasMany } from '@ioc:Adonis/Lucid/Orm';
-import Note from 'App/Models/Note';
-import Registration from 'App/Models/Registration';
+import AppBaseModel from './AppBaseModel';
+import Note from './Note';
+import Registration from './Registration';
 
-export default class Cours extends BaseModel {
-  static tableName: string = 'course';
+export default class Course extends AppBaseModel {
+  // @no-swagger
+  public static tableName: string = 'course';
 
   @column({ isPrimary: true })
   public id: number;
