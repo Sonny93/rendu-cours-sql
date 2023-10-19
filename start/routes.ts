@@ -24,6 +24,13 @@ import swagger from 'Config/swagger';
 
 Route.inertia('/', 'Home');
 
+Route.group(() => {
+  Route.get('/create', 'CourseController.showCreate');
+  Route.get('/:courseId', 'CourseController.showCourse');
+  Route.get('/:courseId/edit', 'CourseController.showDelete');
+  Route.get('/:courseId/delete', 'CourseController.showDelete');
+}).prefix('/courses');
+
 Route.get('/docs', async () => AutoSwagger.docs(Route.toJSON(), swagger));
 Route.get('/swagger', async () => AutoSwagger.ui('/docs'));
 
@@ -31,10 +38,10 @@ Route.group(() => {
   Route.get('/hello', () => 'world!');
 
   Route.group(() => {
-    Route.get('/', 'CourseController.index');
-    Route.post('/', 'CourseController.createCours');
+    Route.get('/', 'CourseController.getAllCourses');
+    Route.get('/:courseId', 'CourseController.getCourse');
 
-    Route.get('/:courseId', 'CourseController.getCours');
+    Route.post('/', 'CourseController.createCours');
     Route.put('/:courseId', 'CourseController.editCours');
     Route.delete('/:courseId', 'CourseController.deleteCours');
   }).prefix('/courses');
