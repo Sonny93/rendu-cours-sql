@@ -5,8 +5,8 @@
  * file.
  */
 
-import Env from '@ioc:Adonis/Core/Env'
-import type { DatabaseConfig } from '@ioc:Adonis/Lucid/Database'
+import Env from '@ioc:Adonis/Core/Env';
+import type { DatabaseConfig } from '@ioc:Adonis/Lucid/Database';
 
 const databaseConfig: DatabaseConfig = {
   /*
@@ -42,14 +42,16 @@ const databaseConfig: DatabaseConfig = {
         password: Env.get('MYSQL_PASSWORD', ''),
         database: Env.get('MYSQL_DB_NAME'),
       },
+      seeders: {
+        paths: ['./database/seeders/MainSeeder'],
+      },
       migrations: {
         naturalSort: true,
       },
       healthCheck: false,
       debug: false,
     },
+  },
+};
 
-  }
-}
-
-export default databaseConfig
+export default databaseConfig;
