@@ -6,7 +6,7 @@ export default function EditCourse({ course }: { course: Course }) {
 
   function handleSubmit(event) {
     event.preventDefault();
-    if (confirm('Êtes vous sûr de vouloir supprimer le cours' + course.titre)) {
+    if (confirm('Êtes vous sûr de vouloir supprimer le cours' + course.title)) {
       deleteFn(`/api/courses/${course.id}`);
     }
   }
@@ -15,7 +15,7 @@ export default function EditCourse({ course }: { course: Course }) {
     <div>
       <form onSubmit={handleSubmit}>
         <p>Supprimer le cours</p>
-        <p>{course.titre}</p>
+        <p>{course.title}</p>
         <button
           type="submit"
           style={{

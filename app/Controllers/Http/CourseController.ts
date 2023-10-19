@@ -102,14 +102,14 @@ export default class CourseController {
     return course;
   }
 
-  public async createCourse(payload: Pick<Course, 'titre' | 'description' | 'enseignant'>) {
+  public async createCourse(payload: Pick<Course, 'title' | 'description' | 'teacher'>) {
     const course = await Course.create(payload);
     return course;
   }
 
   public async editCourse(
     id: Course['id'],
-    payload: Pick<Course, 'titre' | 'description' | 'enseignant'>
+    payload: Pick<Course, 'title' | 'description' | 'teacher'>
   ) {
     await this.getCourseById(id);
     return await Course.updateOrCreate(payload, { id });

@@ -2,15 +2,15 @@ import { InertiaFormProps, useForm } from '@inertiajs/inertia-react';
 import { DetailedHTMLProps, InputHTMLAttributes, ReactNode } from 'react';
 
 export interface PostFormValues {
-  titre: string;
+  title: string;
   description: string;
-  enseignant: string;
+  teacher: string;
 }
 
 const DEFAULT_FORM_DATA: PostFormValues = {
-  titre: '',
+  title: '',
   description: '',
-  enseignant: '',
+  teacher: '',
 };
 
 export default function DefaultForm({
@@ -44,11 +44,11 @@ export default function DefaultForm({
       <Input
         // @ts-ignore
         onChange={handleChange}
-        name="titre"
-        id="titre"
-        value={data.titre}
-        error={errors.titre}
-        placeholder="Titre"
+        name="title"
+        id="title"
+        value={data.title}
+        error={errors.title}
+        placeholder="Title"
       />
       <Input
         // @ts-ignore
@@ -62,11 +62,11 @@ export default function DefaultForm({
       <Input
         // @ts-ignore
         onChange={handleChange}
-        name="enseignant"
-        id="enseignant"
-        value={data.enseignant}
-        error={errors.enseignant}
-        placeholder="Enseignant"
+        name="teacher"
+        id="teacher"
+        value={data.teacher}
+        error={errors.teacher}
+        placeholder="Teacher"
       />
       {children && children}
     </form>

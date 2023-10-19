@@ -28,9 +28,9 @@ export default function Home() {
             <p>no course</p>
           </li>
         )}
-        {courses.map(({ id, titre, enseignant }) => (
+        {courses.map(({ id, title, teacher }) => (
           <li key={id}>
-            {titre} ({enseignant})
+            {title} ({teacher})
           </li>
         ))}
         <li>

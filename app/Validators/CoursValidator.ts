@@ -5,9 +5,9 @@ export default class CoursValidator {
   constructor(protected ctx: HttpContextContract) {}
 
   public schema = schema.create({
-    titre: schema.string({ trim: true }, [rules.required(), rules.maxLength(100)]),
+    title: schema.string({ trim: true }, [rules.required(), rules.maxLength(100)]),
     description: schema.string({ trim: true }, [rules.required(), rules.maxLength(255)]),
-    enseignant: schema.string({ trim: true }, [rules.required(), rules.maxLength(50)]),
+    teacher: schema.string({ trim: true }, [rules.required(), rules.maxLength(50)]),
   });
 
   public messages: CustomMessages = {};
