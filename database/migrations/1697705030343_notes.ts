@@ -14,7 +14,7 @@ export default class extends BaseSchema {
         .onDelete('CASCADE')
         .notNullable();
       table
-        .integer('cours_id')
+        .integer('course_id')
         .unsigned()
         .references('id')
         .inTable('cours')

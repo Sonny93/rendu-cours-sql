@@ -8,7 +8,7 @@
 
 ## Lancer les containers docker
 
-```make docker` ou `docker compose up -d```
+``make docker` ou `docker compose up -d``
 
 ## Lancer le projet en mode dev
 
