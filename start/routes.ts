@@ -29,4 +29,13 @@ Route.get('/swagger', async () => AutoSwagger.ui('/docs'));
 
 Route.group(() => {
   Route.get('/hello', () => 'world!');
+
+  Route.group(() => {
+    Route.get('/', 'CourseController.index');
+    Route.post('/', 'CourseController.createCours');
+
+    Route.get('/:courseId', 'CourseController.getCours');
+    Route.put('/:courseId', 'CourseController.editCours');
+    Route.delete('/:courseId', 'CourseController.deleteCours');
+  }).prefix('/courses');
 }).prefix('/api');
