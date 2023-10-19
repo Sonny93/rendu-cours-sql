@@ -20,7 +20,7 @@ export default class extends BaseSchema {
         .inTable('cours')
         .onDelete('CASCADE')
         .notNullable();
-      table.float('notes', 2).notNullable();
+      table.float('notes', 8, 2).notNullable();
 
       table.timestamp('created_at', { useTz: true });
       table.timestamp('updated_at', { useTz: true });

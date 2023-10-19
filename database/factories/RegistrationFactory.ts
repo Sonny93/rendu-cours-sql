@@ -8,7 +8,7 @@ export default Factory.define(Registration, async ({ faker }: FactoryContextCont
 
   return {
     studentId: studentIds[Math.floor(Math.random() * studentIds.length)],
-    coursId: coursIds[Math.floor(Math.random() * coursIds.length)],
+    courseId: coursIds[Math.floor(Math.random() * coursIds.length)],
     dateInscription: DateTime.fromISO(faker.date.future().toISOString().slice(0, 10)),
   };
 }).build();
