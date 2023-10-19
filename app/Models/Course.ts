@@ -1,7 +1,9 @@
-import { DateTime } from 'luxon';
 import { BaseModel, column } from '@ioc:Adonis/Lucid/Orm';
+import { DateTime } from 'luxon';
 
 export default class Cours extends BaseModel {
+  static tableName: string = 'course';
+
   @column({ isPrimary: true })
   public id: number;
 
