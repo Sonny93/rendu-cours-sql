@@ -1,6 +1,7 @@
-import { column } from '@ioc:Adonis/Lucid/Orm';
+import { ManyToMany, column, manyToMany } from '@ioc:Adonis/Lucid/Orm';
 import { DateTime } from 'luxon';
-import AppBaseModel from './AppBaseModel';
+import AppBaseModel from 'App/Models/AppBaseModel';
+import Course from 'App/Models/Course';
 
 export default class Student extends AppBaseModel {
   @column({ isPrimary: true })
@@ -25,4 +26,14 @@ export default class Student extends AppBaseModel {
 
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   public updatedAt: DateTime;
+
+  @manyToMany(() => Course, {
+    localKey: 'id',
+    pivotTable: 'course_student',
+    pivotForeignKey: 'student_id',
+    pivotRelatedForeignKey: 'course_id',
+    pivotColumns: ['date_inscription', 'notes'],
+    pivotTimestamps: true,
+  })
+  public courses: ManyToMany<typeof Course>;
 }
