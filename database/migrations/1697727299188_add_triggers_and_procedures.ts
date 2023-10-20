@@ -9,27 +9,21 @@ export default class extends BaseSchema {
     BEGIN
         SET NEW.date_inscription = NOW();
     END $$
-    DELIMITER ;
     
-    DELIMITER $$
     CREATE TRIGGER DeleteStudent AFTER DELETE ON students
     FOR EACH ROW
     BEGIN
         DELETE FROM registrations WHERE student_id = OLD.id;
         DELETE FROM notes WHERE student_id = OLD.id;
     END $$
-    DELIMITER ;
     
-    DELIMITER $$
     CREATE TRIGGER DeleteCourse AFTER DELETE ON courses
     FOR EACH ROW
     BEGIN
         DELETE FROM registrations WHERE course_id = OLD.id;
         DELETE FROM notes WHERE course_id = OLD.id;
     END $$
-    DELIMITER ;
     
-    DELIMITER $$
     CREATE PROCEDURE StudentCourseList(IN id INT)
     BEGIN
         SELECT C.title
@@ -37,9 +31,7 @@ export default class extends BaseSchema {
         INNER JOIN registrations R ON C.id = R.course_id
         WHERE R.student_id = id;
     END $$
-    DELIMITER ;
-     
-    DELIMITER $$
+
     CREATE PROCEDURE StudentNotesAverage(IN id INT)
     BEGIN
         SELECT ROUND(AVG(notes))
