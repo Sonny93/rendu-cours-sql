@@ -6,7 +6,7 @@ import Registration from './Registration';
 
 export default class Course extends AppBaseModel {
   // @no-swagger
-  public static tableName: string = 'course';
+  public static tableName: string = 'courses';
 
   @column({ isPrimary: true })
   public id: number;

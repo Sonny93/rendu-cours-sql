@@ -1,15 +1,41 @@
-## Installer les dépendances
+# Rendu Sonny LALLIER, Tanguy MOREL, Thomas PEREZ
 
-`make install` ou `npm install`
+## Installation du projet:
 
-## Formater le code
+### Installer les dépendances
 
-`make format` ou `npm run format`
+```console
+make install
+ou
+npm install
+```
 
-## Lancer les containers docker
+### Formater le code
 
-``make docker` ou `docker compose up -d``
+```console
+make format
+ou
+npm run format
+```
 
-## Lancer le projet en mode dev
+### Lancer les containers docker
 
-`make dev` ou `npm run dev`
+```console
+make docker
+ou
+docker compose up -d
+```
+
+### Lancer le projet en mode dev
+
+```console
+make dev
+ou
+npm run dev
+```
+
+## Migration de la base de données et insertion des données
+
+```console
+node ace migration:run && node ace db:seed
+```
