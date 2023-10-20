@@ -3,6 +3,11 @@ import Course from 'App/Models/Course';
 import CoursValidator from 'App/Validators/CoursValidator';
 
 export default class CourseController {
+  // no-swagger
+  public async showCourseList({ inertia }: HttpContextContract) {
+    const courses = await this.getAllCourses();
+    return inertia.render('Home', { courses });
+  }
   // @no-swagger
   public async showCourse({ request, inertia }: HttpContextContract) {
     const course = await this.getCourseById(request.param('courseId'));

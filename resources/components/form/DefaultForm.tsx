@@ -44,15 +44,17 @@ export default function DefaultForm({
       <Input
         // @ts-ignore
         onChange={handleChange}
+        label="Titre"
         name="title"
         id="title"
         value={data.title}
         error={errors.title}
-        placeholder="Title"
+        placeholder="Titre"
       />
       <Input
         // @ts-ignore
         onChange={handleChange}
+        label="Description"
         name="description"
         id="description"
         value={data.description}
@@ -62,11 +64,12 @@ export default function DefaultForm({
       <Input
         // @ts-ignore
         onChange={handleChange}
+        label="Enseignant"
         name="teacher"
         id="teacher"
         value={data.teacher}
         error={errors.teacher}
-        placeholder="Teacher"
+        placeholder="Enseignant"
       />
       {children && children}
     </form>

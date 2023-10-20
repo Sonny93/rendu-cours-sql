@@ -22,12 +22,12 @@ import Route from '@ioc:Adonis/Core/Route';
 import AutoSwagger from 'adonis-autoswagger';
 import swagger from 'Config/swagger';
 
-Route.inertia('/', 'Home');
+Route.get('/', 'CourseController.showCourseList');
 
 Route.group(() => {
   Route.get('/create', 'CourseController.showCreate');
   Route.get('/:courseId', 'CourseController.showCourse');
-  Route.get('/:courseId/edit', 'CourseController.showDelete');
+  Route.get('/:courseId/edit', 'CourseController.showEdit');
   Route.get('/:courseId/delete', 'CourseController.showDelete');
 }).prefix('/courses');
 
@@ -38,11 +38,11 @@ Route.group(() => {
   Route.get('/hello', () => 'world!');
 
   Route.group(() => {
-    Route.get('/', 'CourseController.getAllCourses');
-    Route.get('/:courseId', 'CourseController.getCourse');
+    Route.get('/', 'CourseController.handleGetAllCourses');
+    Route.get('/:courseId', 'CourseController.handleGetCourse');
 
-    Route.post('/', 'CourseController.createCours');
-    Route.put('/:courseId', 'CourseController.editCours');
-    Route.delete('/:courseId', 'CourseController.deleteCours');
+    Route.post('/', 'CourseController.handleCreateCourse');
+    Route.put('/:courseId', 'CourseController.handleEditCours');
+    Route.delete('/:courseId', 'CourseController.handleDeleteCours');
   }).prefix('/courses');
 }).prefix('/api');
