@@ -11,14 +11,14 @@ export default class extends BaseSchema {
         .unsigned()
         .references('id')
         .inTable('students')
-        .onDelete('CASCADE')
+        .onDelete('RESTRICT')
         .notNullable();
       table
         .integer('course_id')
         .unsigned()
         .references('id')
-        .inTable('cours')
-        .onDelete('CASCADE')
+        .inTable('courses')
+        .onDelete('RESTRICT')
         .notNullable();
       table.date('date_inscription').notNullable();
 
