@@ -22,7 +22,7 @@ import Route from '@ioc:Adonis/Core/Route';
 import AutoSwagger from 'adonis-autoswagger';
 import swagger from 'Config/swagger';
 
-Route.get('/', 'CourseController.showCourseList');
+Route.get('/', 'CourseController.index');
 
 Route.group(() => {
   Route.get('/create', 'CourseController.showCreate');
