@@ -1,12 +1,11 @@
-import { HasMany, column, hasMany } from '@ioc:Adonis/Lucid/Orm';
+import { ManyToMany, column, manyToMany } from '@ioc:Adonis/Lucid/Orm';
 import { DateTime } from 'luxon';
-import AppBaseModel from './AppBaseModel';
-import Note from './Note';
-import Registration from './Registration';
+import AppBaseModel from 'App/Models/AppBaseModel';
+import Student from 'App/Models/Student';
 
 export default class Course extends AppBaseModel {
   // @no-swagger
-  public static tableName: string = 'course';
+  public static tableName: string = 'courses';
 
   @column({ isPrimary: true })
   public id: number;
@@ -26,9 +25,13 @@ export default class Course extends AppBaseModel {
   @column.dateTime({ autoCreate: true, autoUpdate: true })
   public updatedAt: DateTime;
 
-  @hasMany(() => Note)
-  public notes: HasMany<typeof Note>;
-
-  @hasMany(() => Registration) // Nouvelle relation
-  public registrations: HasMany<typeof Registration>;
+  @manyToMany(() => Student, {
+    localKey: 'id',
+    pivotTable: 'course_student',
+    pivotForeignKey: 'course_id',
+    pivotRelatedForeignKey: 'student_id',
+    pivotColumns: ['date_inscription', 'notes'],
+    pivotTimestamps: true,
+  })
+  public students: ManyToMany<typeof Student>;
 }

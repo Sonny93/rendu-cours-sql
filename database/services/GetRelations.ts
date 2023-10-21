@@ -1,17 +1,17 @@
-import StudentModel from 'App/Models/Student';
-import CoursModel from 'App/Models/Course';
+import Student from 'App/Models/Student';
+import Course from 'App/Models/Course';
 
 export default class GetRelations {
-  public static async run(): Promise<{ studentIds: number[]; coursIds: number[] }> {
-    const students = await StudentModel.all();
-    const studentIds = students.map((student) => student.id);
+  public static async run(): Promise<{ studentsIds: number[]; coursesIds: number[] }> {
+    const students = await Student.all();
+    const studentsIds = students.map((student) => student.id).sort((a, b) => a - b);
 
-    const cours = await CoursModel.all();
-    const coursIds = cours.map((cours) => cours.id);
+    const courses = await Course.all();
+    const coursesIds = courses.map((course) => course.id).sort((a, b) => a - b);
 
     return {
-      studentIds,
-      coursIds,
+      studentsIds,
+      coursesIds,
     };
   }
 }

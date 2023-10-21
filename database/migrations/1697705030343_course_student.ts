@@ -1,7 +1,7 @@
 import BaseSchema from '@ioc:Adonis/Lucid/Schema';
 
 export default class extends BaseSchema {
-  protected tableName = 'notes';
+  protected tableName = 'course_student';
 
   public async up() {
     this.schema.createTable(this.tableName, (table) => {
@@ -11,16 +11,17 @@ export default class extends BaseSchema {
         .unsigned()
         .references('id')
         .inTable('students')
-        .onDelete('CASCADE')
+        .onDelete('RESTRICT')
         .notNullable();
       table
         .integer('course_id')
         .unsigned()
         .references('id')
-        .inTable('cours')
-        .onDelete('CASCADE')
+        .inTable('courses')
+        .onDelete('RESTRICT')
         .notNullable();
-      table.float('notes', 8, 2).notNullable();
+      table.date('date_inscription').notNullable();
+      table.float('notes', 8, 2).nullable().defaultTo(null);
 
       table.timestamp('created_at', { useTz: true });
       table.timestamp('updated_at', { useTz: true });
