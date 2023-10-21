@@ -1,4 +1,6 @@
-# Rendu Sonny LALLIER, Tanguy MOREL, Thomas PEREZ
+# Projet cours SQL et API REST
+
+> Rendu Sonny LALLIER, Tanguy MOREL et Thomas PEREZ
 
 ## Installation du projet:
 
@@ -6,36 +8,34 @@
 
 ```console
 make install
-ou
-npm install
-```
-
-### Formater le code
-
-```console
-make format
-ou
-npm run format
 ```
 
 ### Lancer les containers docker
 
 ```console
 make docker
-ou
-docker compose up -d
+```
+
+### Créer la base de donnée
+
+```console
+make create_db
+```
+
+### Migration de la base de données et insertion des données
+
+```console
+make migration && make seed-db
 ```
 
 ### Lancer le projet en mode dev
 
 ```console
 make dev
-ou
-npm run dev
 ```
 
-## Migration de la base de données et insertion des données
+### Formater le code
 
 ```console
-node ace migration:run && node ace db:seed
+make format
 ```
