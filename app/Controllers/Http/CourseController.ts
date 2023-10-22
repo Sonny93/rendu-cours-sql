@@ -4,8 +4,15 @@ import CoursValidator from 'App/Validators/CoursValidator';
 
 export default class CourseController {
   // @no-swagger
+  public async index({ inertia }: HttpContextContract) {
+    const courses = await this.getAllCourses();
+    return inertia.render('Home', { courses });
+  }
+
+  // @no-swagger
   public async showCourse({ request, inertia }: HttpContextContract) {
     const course = await this.getCourseById(request.param('courseId'));
+    await course.load('students');
     return inertia.render('Courses/ShowCourse', { course });
   }
 
@@ -58,7 +65,7 @@ export default class CourseController {
     const data = await request.validate(CoursValidator);
     return response.json({
       message: 'Course successfully created',
-      course: this.createCourse(data),
+      course: await this.createCourse(data),
     });
   }
 
@@ -112,7 +119,7 @@ export default class CourseController {
     payload: Pick<Course, 'title' | 'description' | 'teacher'>
   ) {
     await this.getCourseById(id);
-    return await Course.updateOrCreate(payload, { id });
+    return await Course.updateOrCreate({ id }, payload);
   }
 
   public async deleteCourse(id: Course['id']) {

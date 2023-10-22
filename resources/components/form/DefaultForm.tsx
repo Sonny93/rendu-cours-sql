@@ -18,11 +18,13 @@ export default function DefaultForm({
   onSubmit,
   defaultData = DEFAULT_FORM_DATA,
   children,
+  disableInputs = false,
 }: {
   title: string;
   onSubmit: (submit: InertiaFormProps['submit']) => void;
   defaultData?: typeof DEFAULT_FORM_DATA;
   children?: ReactNode;
+  disableInputs?: boolean;
 }) {
   const { data, setData, errors, submit } = useForm(defaultData);
 
@@ -44,29 +46,35 @@ export default function DefaultForm({
       <Input
         // @ts-ignore
         onChange={handleChange}
+        label="Titre"
         name="title"
         id="title"
         value={data.title}
         error={errors.title}
-        placeholder="Title"
+        placeholder="Titre"
+        disabled={disableInputs}
       />
       <Input
         // @ts-ignore
         onChange={handleChange}
+        label="Description"
         name="description"
         id="description"
         value={data.description}
         error={errors.description}
         placeholder="Description"
+        disabled={disableInputs}
       />
       <Input
         // @ts-ignore
         onChange={handleChange}
+        label="Enseignant"
         name="teacher"
         id="teacher"
         value={data.teacher}
         error={errors.teacher}
-        placeholder="Teacher"
+        placeholder="Enseignant"
+        disabled={disableInputs}
       />
       {children && children}
     </form>
