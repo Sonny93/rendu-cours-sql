@@ -6,28 +6,34 @@ import BasicForm from 'Components/form/BasicForm';
 export default function CreateCourse() {
   function handleSubmit(submit: InertiaFormProps['submit']) {
     // TODO: retrieve course id and redirect
-    submit(Method.POST, '/api/courses', {
+    submit(Method.POST, '/api/students', {
       onFinish: () => Inertia.get('/'),
     });
   }
 
   const fields = [
     {
-      label: 'Titre',
-      name: 'title',
+      label: 'Prénom',
+      name: 'firstname',
     },
     {
-      label: 'Description',
-      name: 'description',
+      label: 'Nom',
+      name: 'name',
     },
     {
-      label: 'Enseignant',
-      name: 'teacher',
+      label: 'Email',
+      name: 'email',
+    },
+    {
+      label: 'Date de naissance',
+      name: 'birthday',
+      type: 'date',
+      value: new Date().toString(),
     },
   ];
   return (
     <DefaultLayout>
-      <BasicForm title="Créer un cours" onSubmit={handleSubmit} fields={fields}>
+      <BasicForm title="Créer un étudiant" onSubmit={handleSubmit} fields={fields}>
         <button type="submit">Créer</button>
       </BasicForm>
     </DefaultLayout>
