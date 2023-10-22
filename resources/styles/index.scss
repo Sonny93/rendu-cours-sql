@@ -73,10 +73,14 @@ $page-size: 968px;
 
 #app {
   width: $page-size;
-  padding: 1em;
+  padding: 1em 0;
   display: flex;
   flex: 1;
   flex-direction: column;
+
+  & main {
+    padding: 1em;
+  }
 }
 
 button,
@@ -89,6 +93,10 @@ button,
   color: #fff;
   background-color: purple;
   transition: 0.15s;
+
+  &.danger {
+    background-color: red;
+  }
 
   &:hover {
     text-decoration: none;
@@ -107,6 +115,12 @@ form {
   flex-direction: column;
 
   & input {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: $page-size) {
+  #app {
     width: 100%;
   }
 }

@@ -15,8 +15,11 @@
 
 import Logger from '@ioc:Adonis/Core/Logger';
 import HttpExceptionHandler from '@ioc:Adonis/Core/HttpExceptionHandler';
+import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext';
 
 export default class ExceptionHandler extends HttpExceptionHandler {
+  protected disableStatusPagesInDevelopment = false;
+
   protected statusPages = {
     '403': 'errors/unauthorized',
     '404': 'errors/not-found',
@@ -25,5 +28,16 @@ export default class ExceptionHandler extends HttpExceptionHandler {
 
   constructor() {
     super(Logger);
+  }
+
+  public async handle(error: any, ctx: HttpContextContract) {
+    if (error.status === 404) {
+      return ctx.response.redirect('/');
+    }
+
+    /**
+     * Forward rest of the exceptions to the parent class
+     */
+    return super.handle(error, ctx);
   }
 }

@@ -1,10 +1,14 @@
-import { Method } from '@inertiajs/inertia';
+import { Inertia, Method } from '@inertiajs/inertia';
+import { InertiaFormProps } from '@inertiajs/inertia-react';
 import DefaultLayout from 'Components/Layout/DefaultLayout';
 import DefaultForm from 'Components/form/DefaultForm';
 
 export default function CreateCourse() {
-  function handleSubmit(submit) {
-    submit(Method.POST, '/api/courses');
+  function handleSubmit(submit: InertiaFormProps['submit']) {
+    // TODO: retrieve course id and redirect
+    submit(Method.POST, '/api/courses', {
+      onFinish: () => Inertia.get('/'),
+    });
   }
   return (
     <DefaultLayout>
