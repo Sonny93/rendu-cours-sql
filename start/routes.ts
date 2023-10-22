@@ -23,8 +23,6 @@ Route.get('/docs', async () => AutoSwagger.docs(Route.toJSON(), swagger));
 Route.get('/swagger', async () => AutoSwagger.ui('/docs'));
 
 Route.group(() => {
-  Route.get('/hello', () => 'world!');
-
   Route.group(() => {
     Route.get('/', 'CourseController.handleGetAllCourses');
     Route.get('/:courseId', 'CourseController.handleGetCourse');
