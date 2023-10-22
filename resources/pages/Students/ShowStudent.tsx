@@ -21,6 +21,16 @@ export default function ShowStudent({
       <p>
         Date de naissance : <b>{student.birthday.toString()}</b>
       </p>
+      <p>Cours :</p>
+      <ul style={{ paddingLeft: '1em' }}>
+        {student.courses.map(({ id, title, teacher }) => (
+          <li key={id}>
+            <Link href={`/courses/${id}`}>
+              {title} ({teacher})
+            </Link>
+          </li>
+        ))}
+      </ul>
       <div style={{ display: 'flex', gap: '.5em', flexDirection: 'column' }}>
         <Link className="btn" href={`/students/${student.id}/edit`}>
           Modifier l'étudiant
