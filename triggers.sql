@@ -11,13 +11,13 @@ DELIMITER $$
         SET NEW.date_inscription = NOW();
     END $$
     
-    CREATE TRIGGER DeleteStudent AFTER DELETE ON students
+    CREATE TRIGGER DeleteStudent BEFORE DELETE ON students
     FOR EACH ROW
     BEGIN
         DELETE FROM course_student WHERE student_id = OLD.id;
     END $$
     
-    CREATE TRIGGER DeleteCourse AFTER DELETE ON courses
+    CREATE TRIGGER DeleteCourse BEFORE DELETE ON courses
     FOR EACH ROW
     BEGIN
         DELETE FROM course_student WHERE course_id = OLD.id;
