@@ -43,7 +43,7 @@ export default class CourseController {
   }
 
   /**
-   * @getCourse
+   * @getCours
    * @description Return course from id
    * @responseBody 200 - <Course>
    * @responseBody 404 - Course could not be found
