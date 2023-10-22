@@ -2,6 +2,11 @@
 
 > Rendu Sonny LALLIER, Tanguy MOREL et Thomas PEREZ
 
+Liens utiles :
+
+- Le projet : http://localhost:3333
+- Document interactive : http://localhost:3333/swagger
+
 ## Installation du projet:
 
 ### Installer les dépendances
