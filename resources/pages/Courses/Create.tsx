@@ -1,7 +1,7 @@
 import { Inertia, Method } from '@inertiajs/inertia';
 import { InertiaFormProps } from '@inertiajs/inertia-react';
 import DefaultLayout from 'Components/Layout/DefaultLayout';
-import DefaultForm from 'Components/form/DefaultForm';
+import BasicForm from 'Components/form/BasicForm';
 
 export default function CreateCourse() {
   function handleSubmit(submit: InertiaFormProps['submit']) {
@@ -10,11 +10,26 @@ export default function CreateCourse() {
       onFinish: () => Inertia.get('/'),
     });
   }
+
+  const fields = [
+    {
+      label: 'Titre',
+      name: 'title',
+    },
+    {
+      label: 'Description',
+      name: 'description',
+    },
+    {
+      label: 'Enseignant',
+      name: 'teacher',
+    },
+  ];
   return (
     <DefaultLayout>
-      <DefaultForm title="Créer un cours" onSubmit={handleSubmit}>
+      <BasicForm title="Créer un cours" onSubmit={handleSubmit} fields={fields}>
         <button type="submit">Créer</button>
-      </DefaultForm>
+      </BasicForm>
     </DefaultLayout>
   );
 }
