@@ -15,7 +15,6 @@ export default function CreateCourse() {
       <DefaultForm title="Créer un cours" onSubmit={handleSubmit}>
         <button type="submit">Créer</button>
       </DefaultForm>
-      <a href="/">un lien super joli pour revenir à l'accueil de ce merveilleux site</a>
     </DefaultLayout>
   );
 }

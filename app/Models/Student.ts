@@ -1,7 +1,7 @@
-import { ManyToMany, column, manyToMany } from '@ioc:Adonis/Lucid/Orm';
-import { DateTime } from 'luxon';
+import { ManyToMany, column, computed, manyToMany } from '@ioc:Adonis/Lucid/Orm';
 import AppBaseModel from 'App/Models/AppBaseModel';
 import Course from 'App/Models/Course';
+import { DateTime } from 'luxon';
 
 export default class Student extends AppBaseModel {
   @column({ isPrimary: true })
@@ -36,4 +36,9 @@ export default class Student extends AppBaseModel {
     pivotTimestamps: true,
   })
   public courses: ManyToMany<typeof Course>;
+
+  @computed()
+  public get fullname() {
+    return `${this.firstname} ${this.name.toUpperCase()}`;
+  }
 }

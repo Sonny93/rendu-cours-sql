@@ -3,9 +3,8 @@ import './navbar.scss';
 
 export default function Navbar() {
   const items = [
-    { label: 'Home', link: '/' },
-    { label: 'Courses', link: '/' },
-    { label: 'Students', link: '/students' },
+    { label: 'Cours', link: '/' },
+    { label: 'Étudiants', link: '/students' },
   ];
 
   return (

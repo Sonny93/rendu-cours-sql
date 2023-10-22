@@ -23,7 +23,6 @@ export default function EditCourse({ course }: { course: Course }) {
       >
         <button type="submit">Modifier le cours</button>
       </DefaultForm>
-      <a href="/">un lien super joli pour revenir à l'accueil de ce merveilleux site</a>
     </DefaultLayout>
   );
 }

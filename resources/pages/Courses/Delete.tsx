@@ -20,7 +20,6 @@ export default function EditCourse({ course }: { course: Course }) {
           Supprimer
         </button>
       </DefaultForm>
-      <a href="/">un lien super joli pour revenir à l'accueil de ce merveilleux site</a>
     </DefaultLayout>
   );
 }
