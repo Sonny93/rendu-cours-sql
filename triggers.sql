@@ -34,6 +34,7 @@ DELIMITER $$
     CREATE PROCEDURE StudentNotesAverage(IN id INT)
     BEGIN
         SELECT ROUND(AVG(CS.notes))
+        AS 'average'
         FROM course_student CS
         WHERE student_id = id;
     END $$
