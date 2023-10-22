@@ -45,4 +45,14 @@ Route.group(() => {
     Route.put('/:courseId', 'CourseController.handleEditCours');
     Route.delete('/:courseId', 'CourseController.handleDeleteCours');
   }).prefix('/courses');
+
+  Route.group(() => {
+    Route.get('/', 'StudentController.index');
+    Route.post('/', 'StudentController.createStudent');
+
+    Route.get('/:studentId', 'StudentController.getStudent');
+    Route.put('/:studentId', 'StudentController.editStudent');
+    Route.delete('/:studentId', 'StudentController.deleteStudent');
+  }).prefix('/students')
+  
 }).prefix('/api');

@@ -1,7 +1,6 @@
 import BaseSeeder from '@ioc:Adonis/Lucid/Seeder';
 import GetRelations from 'Database/services/GetRelations';
 import Student from 'App/Models/Student';
-import { DateTime } from 'luxon';
 
 export default class extends BaseSeeder {
   public async run() {
@@ -17,9 +16,6 @@ export default class extends BaseSeeder {
         const student = await Student.findOrFail(studentId);
         await student.related('courses').attach({
           [selectedCourseId]: {
-            date_inscription: DateTime.now()
-              .plus({ days: Math.floor(Math.random() * 7) })
-              .toISODate(),
             notes: (Math.random() * 20).toFixed(2),
           },
         });
