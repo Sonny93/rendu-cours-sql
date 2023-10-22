@@ -3,38 +3,32 @@ import Course from 'App/Models/Course';
 import CoursValidator from 'App/Validators/CoursValidator';
 
 export default class CourseController {
-  // @no-swagger
   public async index({ inertia }: HttpContextContract) {
     const courses = await this.getAllCourses();
     return inertia.render('Home', { courses });
   }
 
-  // @no-swagger
   public async showCourse({ request, inertia }: HttpContextContract) {
     const course = await this.getCourseById(request.param('courseId'));
     await course.load('students');
     return inertia.render('Courses/ShowCourse', { course });
   }
 
-  // @no-swagger
   public async showCreate({ inertia }: HttpContextContract) {
     return inertia.render('Courses/Create');
   }
 
-  // @no-swagger
   public async showEdit({ request, inertia }: HttpContextContract) {
     const course = await this.getCourseById(request.param('courseId'));
     return inertia.render('Courses/Edit', { course });
   }
 
-  // @no-swagger
   public async showDelete({ request, inertia }: HttpContextContract) {
     const course = await this.getCourseById(request.param('courseId'));
     return inertia.render('Courses/Delete', { course });
   }
 
   /**
-   * @index
    * @description Returns array of courses
    * @responseBody 200 - <Course[]>
    */
@@ -43,10 +37,8 @@ export default class CourseController {
   }
 
   /**
-   * @getCours
    * @description Return course from id
    * @responseBody 200 - <Course>
-   * @responseBody 404 - Course could not be found
    * @requestBody <Course>
    */
   public async handleGetCourse({ response, request }: HttpContextContract) {
@@ -55,10 +47,8 @@ export default class CourseController {
   }
 
   /**
-   * @createCours
    * @description Create course
    * @responseBody 200 - <Course>
-   * @responseBody 404 - Course could not be found
    * @requestBody <Course>
    */
   public async handleCreateCourse({ response, request }: HttpContextContract) {
@@ -70,10 +60,8 @@ export default class CourseController {
   }
 
   /**
-   * @editCours
    * @description Edit course
    * @responseBody 200 - <Course>
-   * @responseBody 404 - Course could not be found
    * @requestBody <Course>
    */
   public async handleEditCours({ response, request }: HttpContextContract) {
@@ -83,10 +71,8 @@ export default class CourseController {
   }
 
   /**
-   * @deleteCours
    * @description Delete course
    * @responseBody 200 - <Course>
-   * @responseBody 404 - Course could not be found
    * @requestBody <Course>
    */
   public async handleDeleteCours({ response, request }: HttpContextContract) {

@@ -4,38 +4,32 @@ import Student from 'App/Models/Student';
 import StudentValidator from 'App/Validators/StudentValidator';
 
 export default class StudentController {
-  // @no-swagger
   public async index({ inertia }: HttpContextContract) {
     const students = await this.getAllStudents();
     return inertia.render('Students/ShowList', { students });
   }
 
-  // @no-swagger
   public async showStudent({ request, inertia }: HttpContextContract) {
     const student = await this.getStudentWithRelatedCourses(request.param('studentId'));
     const studentAverage = await this.getStudentNotesAverage(student.id);
     return inertia.render('Students/ShowStudent', { student, studentAverage });
   }
 
-  // @no-swagger
   public async showCreate({ inertia }: HttpContextContract) {
     return inertia.render('Students/Create');
   }
 
-  // @no-swagger
   public async showEdit({ request, inertia }: HttpContextContract) {
     const student = await this.getStudentWithRelatedCourses(request.param('studentId'));
     return inertia.render('Students/Edit', { student });
   }
 
-  // @no-swagger
   public async showDelete({ request, inertia }: HttpContextContract) {
     const student = await Student.findOrFail(request.param('studentId'));
     return inertia.render('Students/Delete', { student });
   }
 
   /**
-   * @index
    * @description Returns array of students
    * @responseBody 200 - <Student[]>
    */
@@ -44,10 +38,8 @@ export default class StudentController {
   }
 
   /**
-   * @getStudent
    * @description Return student from id
    * @responseBody 200 - <Student>
-   * @responseBody 404 - Student could not be found
    * @requestBody <Student>
    */
   public async handleGetStudent({ response, request }: HttpContextContract) {
@@ -57,10 +49,8 @@ export default class StudentController {
   }
 
   /**
-   * @createStudent
    * @description Create student
    * @responseBody 200 - <Student>
-   * @responseBody 404 - Student could not be found
    * @requestBody <Student>
    */
   public async handleCreateStudent({ response, request }: HttpContextContract) {
@@ -70,10 +60,8 @@ export default class StudentController {
   }
 
   /**
-   * @editStudent
    * @description Edit student
    * @responseBody 200 - <Student>
-   * @responseBody 404 - Student could not be found
    * @requestBody <Student>
    */
   public async handleEditStudent({ response, request }: HttpContextContract) {
@@ -89,10 +77,8 @@ export default class StudentController {
   }
 
   /**
-   * @deleteStudent
    * @description Delete student
    * @responseBody 200 - <Student>
-   * @responseBody 404 - Student could not be found
    * @requestBody <Student>
    */
   public async handleDeleteStudent({ response, request }: HttpContextContract) {
