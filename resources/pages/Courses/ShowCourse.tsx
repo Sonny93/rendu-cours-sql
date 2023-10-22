@@ -14,9 +14,9 @@ export default function ShowCourse({ course }: { course: Course }) {
       </p>
       <p>Students :</p>
       <ul style={{ paddingLeft: '1em' }}>
-        {course.students.map(({ id, firstname, name }) => (
+        {course.students.map(({ id, fullname }) => (
           <li key={id}>
-            <b>{firstname}</b> <span style={{ textTransform: 'uppercase' }}>{name}</span>
+            <Link href={`/students/${id}`}>{fullname}</Link>
           </li>
         ))}
       </ul>
