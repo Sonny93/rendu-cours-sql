@@ -15,13 +15,11 @@ export default function ShowStudent({
       <p>
         Email : <b>{student.email}</b>
       </p>
-      <p>
-        Note moyenne : <b>{average}</b>
-      </p>
+      <p>Note moyenne : {average ? <b>{average}</b> : <i>N/A</i>}</p>
       <p>
         Date de naissance : <b>{student.birthday.toString()}</b>
       </p>
-      <p>Cours :</p>
+      <p>Cours : {student.courses.length === 0 && 'Aucun'}</p>
       <ul style={{ paddingLeft: '1em' }}>
         {student.courses.map(({ id, title, teacher }) => (
           <li key={id}>
