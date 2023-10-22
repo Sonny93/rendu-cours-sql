@@ -6,11 +6,9 @@ import BasicForm from 'Components/form/BasicForm';
 
 export default function EditStudent({ student }: { student: Student }) {
   function handleSubmit(submit: InertiaFormProps['submit']) {
-    if (confirm("Êtes vous sûr de vouloir supprimer l'étudiant" + student.fullname)) {
-      submit(Method.DELETE, `/api/students/${student.id}`, {
-        onFinish: () => Inertia.get('/'),
-      });
-    }
+    submit(Method.PUT, `/api/students/${student.id}`, {
+      onFinish: () => Inertia.get(`/students/${student.id}`),
+    });
   }
 
   const fields = [
@@ -38,15 +36,8 @@ export default function EditStudent({ student }: { student: Student }) {
   ];
   return (
     <DefaultLayout>
-      <BasicForm
-        title="Supprimer l'étudiant 👼"
-        onSubmit={handleSubmit}
-        fields={fields}
-        disableInputs
-      >
-        <button type="submit" className="danger">
-          Supprimer
-        </button>
+      <BasicForm title="Modifier l'étudiant" onSubmit={handleSubmit} fields={fields}>
+        <button type="submit">Modifier l'étudiant</button>
       </BasicForm>
     </DefaultLayout>
   );
