@@ -41,7 +41,7 @@ export default class CourseController {
    * @responseBody 200 - <Course>
    * @requestBody <Course>
    */
-  public async getCours({ response, request }: HttpContextContract) {
+  public async handleGetCourse({ response, request }: HttpContextContract) {
     const course = await this.getCourseById(request.param('courseId'));
     return response.json({ course });
   }
