@@ -1,17 +1,9 @@
 {
   "extends": "adonis-preset-ts/tsconfig.json",
-  "include": [
-    "**/*"
-  ],
-  "exclude": [
-    "node_modules",
-    "build"
-  ],
+  "include": ["**/*"],
+  "exclude": ["node_modules", "build"],
   "compilerOptions": {
-    "lib": [
-      "dom",
-      "dom.iterable"
-    ],
+    "lib": ["dom", "dom.iterable"],
     "allowJs": true,
     "skipLibCheck": true,
     "strict": false,
@@ -26,33 +18,15 @@
     "sourceMap": true,
     "jsx": "react-jsx",
     "paths": {
-      "App/*": [
-        "./app/*"
-      ],
-      "Config/*": [
-        "./config/*"
-      ],
-      "Contracts/*": [
-        "./contracts/*"
-      ],
-      "Database/*": [
-        "./database/*"
-      ],
-      "Components/*": [
-        "./resources/components/*"
-      ],
-      "Styles/*": [
-        "./resources/styles/*"
-      ],
-      "Assets/*": [
-        "./resources/assets/*"
-      ],
-      "Types/*": [
-        "./resources/types/*"
-      ],
-      "Utils/*": [
-        "./resources/utils/*"
-      ]
+      "App/*": ["./app/*"],
+      "Config/*": ["./config/*"],
+      "Contracts/*": ["./contracts/*"],
+      "Database/*": ["./database/*"],
+      "Components/*": ["./resources/components/*"],
+      "Styles/*": ["./resources/styles/*"],
+      "Assets/*": ["./resources/assets/*"],
+      "Types/*": ["./resources/types/*"],
+      "Utils/*": ["./resources/utils/*"]
     },
     "types": [
       "@adonisjs/core",
@@ -61,7 +35,8 @@
       "@adonisjs/view",
       "@adonisjs/shield",
       "@japa/preset-adonis/build/adonis-typings",
-      "@eidellev/inertia-adonisjs"
+      "@eidellev/inertia-adonisjs",
+      "@adonisjs/lucid"
     ]
   }
 }

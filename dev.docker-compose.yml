@@ -8,20 +8,20 @@ services:
     image: mariadb:11
     container_name: mariadb_rendu_sql
     restart: always
-    environment:
-      - MYSQL_USER=dbuser
-      - MYSQL_PASSWORD=dbpassword
-      - MYSQL_ROOT_PASSWORD=dbrootpassword
+    env_file:
+      - .env
     volumes:
       - mariadb_rendu:/var/lib/mysql
+      - ./docker-config/init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - 3306:3306
   pma:
     image: phpmyadmin:5
     container_name: PhpMyAdmin
     restart: always
+    env_file:
+      - .env
     environment:
-      - MYSQL_USER=dbuser
-      - MYSQL_PASSWORD=dbpassword
-      - MYSQL_ROOT_PASSWORD=dbrootpassword
       - PMA_HOST=mariadb
     depends_on:
       - mariadb

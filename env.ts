@@ -23,4 +23,9 @@ export default Env.rules({
   SESSION_DRIVER: Env.schema.string(),
   DRIVE_DISK: Env.schema.enum(['local'] as const),
   NODE_ENV: Env.schema.enum(['development', 'production', 'test'] as const),
+  MYSQL_HOST: Env.schema.string({ format: 'host' }),
+  MYSQL_PORT: Env.schema.number(),
+  MYSQL_PASSWORD: Env.schema.string(),
+  MYSQL_ROOT_PASSWORD: Env.schema.string(),
+  MYSQL_DB_NAME: Env.schema.string(),
 });

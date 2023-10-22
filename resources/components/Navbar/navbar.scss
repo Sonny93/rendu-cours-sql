@@ -1,0 +1,14 @@
+.navbar {
+  width: 100%;
+  padding: 1em;
+  background-color: #fff;
+  border-radius: 0.25em;
+  box-shadow: 0 0 4px 1px rgba($color: #46444c, $alpha: 0.05);
+}
+
+.nav-items {
+  display: flex;
+  gap: 1em;
+  align-items: center;
+  justify-content: center;
+}

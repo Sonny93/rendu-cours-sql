@@ -18,7 +18,7 @@ body {
   width: 100%;
   font-family: 'Poppins', sans-serif;
   color: #333;
-  background-color: #ccc;
+  background-color: #f0eef6;
   display: flex;
   align-items: center;
   flex-direction: column;
@@ -39,5 +39,88 @@ body {
 }
 
 a {
+  width: fit-content;
   color: purple;
+  text-decoration: none;
+  display: block;
+  transition: 0.15s;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+ul {
+  &,
+  & li {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+input,
+select,
+option {
+  font: inherit;
+  font-size: 14px;
+  padding: 0.6em 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 0.25em;
+}
+
+$page-size: 968px;
+
+#app {
+  width: $page-size;
+  padding: 1em 0;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+
+  & main {
+    padding: 1em;
+  }
+}
+
+button,
+.btn {
+  cursor: pointer;
+  min-width: 150px;
+  padding: 0.5em 0.75em;
+  border-radius: 3px;
+  border: 1px solid transparent;
+  color: #fff;
+  background-color: purple;
+  transition: 0.15s;
+
+  &.danger {
+    background-color: red;
+  }
+
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+form {
+  display: flex;
+  gap: 1em;
+  flex-direction: column;
+}
+
+.field {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+
+  & input {
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: $page-size) {
+  #app {
+    width: 100%;
+  }
 }
